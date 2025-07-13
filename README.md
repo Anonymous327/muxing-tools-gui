@@ -6,8 +6,8 @@ A portable GUI application for batch video muxing operations with advanced subti
 
 ## Quick Start
 
-1. **Download and Extract**: Extract the ZIP file to any folder
-2. **Run the Application**: Double-click `Muxer.exe`
+1. **Download**: Download the executable file from the releases
+2. **Run the Application**: Double-click `Muxing Tools.exe` (GUI) or `Muxing Tools - Console.exe` (Console)
 3. **Configure Tools**: Go to Settings → Tools and set the path to MKVToolNix
 4. **Start Muxing**: Use the Muxer page to process your videos
 
