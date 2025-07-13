@@ -21,6 +21,8 @@ A portable GUI application for batch video muxing operations with advanced subti
 - **FFmpeg**: Optional, for audio encoding (download from [ffmpeg.org](https://ffmpeg.org/))
 - **Aegisub**: Optional, for subtitle editing (download from [aegisub.org](https://aegisub.org/))
 
+**Note**: Tools can be used from your system PATH or you can set custom paths in the application settings.
+
 ### System Requirements
 
 - Windows 10/11 (64-bit)
@@ -29,17 +31,16 @@ A portable GUI application for batch video muxing operations with advanced subti
 
 ## First Time Setup
 
-1. **Install MKVToolNix**:
+1. **Install Required Tools**:
 
-   - Download and install MKVToolNix
-   - Note the installation directory (usually `C:\Program Files\MKVToolNix`)
+   - Download and install MKVToolNix from [mkvtoolnix.download](https://mkvtoolnix.download/)
+   - Optionally install FFmpeg and Aegisub if needed
 
-2. **Configure Tool Paths**:
+2. **Configure Tool Paths** (Optional):
 
-   - Open the application
-   - Go to Settings → Tools
-   - Set "MKVToolNix Directory" to your MKVToolNix installation folder
-   - Optionally set paths for FFmpeg and Aegisub
+   - If tools are in your system PATH, the application will find them automatically
+   - To use custom paths, open the application and go to Settings → Tools
+   - Set custom paths for MKVToolNix, FFmpeg, and Aegisub if needed
 
 3. **Create Your First Preset**:
    - Go to the Muxer page
