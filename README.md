@@ -10,7 +10,9 @@ A portable GUI application for batch video muxing operations with advanced subti
 2. **Run the Application**:
    - `Muxing Tools.exe` - Standard GUI version
    - `Muxing Tools - Console.exe` - GUI version with console window visible for debugging
-3. **Configure Tools**: Go to Settings → Tools and set the path to MKVToolNix
+3. **Configure Tools** (Optional):
+   - If MKVToolNix, FFmpeg, and Aegisub are in your PATH, they will be detected automatically
+   - Otherwise, go to Settings → Tools and set the paths to the required tools
 4. **Start Muxing**: Use the Muxer page to process your videos
 
 ## Requirements
@@ -18,8 +20,8 @@ A portable GUI application for batch video muxing operations with advanced subti
 ### Required Tools
 
 - **MKVToolNix**: Download from [mkvtoolnix.download](https://mkvtoolnix.download/)
-- **FFmpeg**: Optional, for audio encoding (download from [ffmpeg.org](https://ffmpeg.org/))
-- **Aegisub**: Optional, for subtitle editing (download from [aegisub.org](https://aegisub.org/))
+- **FFmpeg**: Required for audio encoding (download from [ffmpeg.org](https://ffmpeg.org/))
+- **Aegisub**: Required for subtitle editing (download from [aegisub.org](https://aegisub.org/))
 
 **Note**: Tools can be used from your system PATH or you can set custom paths in the application settings.
 
@@ -34,7 +36,8 @@ A portable GUI application for batch video muxing operations with advanced subti
 1. **Install Required Tools**:
 
    - Download and install MKVToolNix from [mkvtoolnix.download](https://mkvtoolnix.download/)
-   - Optionally install FFmpeg and Aegisub if needed
+   - Download and install FFmpeg from [ffmpeg.org](https://ffmpeg.org/)
+   - Download and install Aegisub from [aegisub.org](https://aegisub.org/)
 
 2. **Configure Tool Paths** (Optional):
 
