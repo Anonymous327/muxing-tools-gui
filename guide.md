@@ -53,6 +53,80 @@ The main page for batch muxing operations with comprehensive preset management a
   - **Configure TVDB...**: Set up automatic naming using The TV Database
   - **Set Custom Titles...**: Manually set sequential titles for episodes when automatic fetching isn't available
 
+---
+
+### Using the TMDB, TVDB, and Custom Titles Dialogs
+
+#### TMDB Dialog (Configure TMDB...)
+
+This dialog allows you to fetch episode titles and metadata from The Movie Database (TMDB).
+
+**Fields and Options:**
+
+- **Enable TMDB Integration**: Toggle TMDB metadata fetching on or off.
+- **This is a Movie (not a TV series)**: Check if muxing a movie instead of a TV show.
+- **TMDB ID**: Enter the numeric TMDB ID for the show or movie. You can find this on the TMDB website.
+- **Season Number**: For TV shows, specify the season to fetch episode data from.
+- **Episode Number Offset**: Add this number to the episode number parsed from the filename (useful for specials or split seasons).
+- **Episode Order**: Choose the episode order (Aired, DVD, Absolute, etc.).
+- **Language**: Set the language code (e.g., `en-US`, `de`).
+- **Use episode number from filename**: If checked, the episode number is parsed from the filename; otherwise, uses the file’s position in the list.
+- **Metadata Options**: Choose which metadata to write (title, IDs, release date, cover art, series summary, episode synopsis).
+- **Replace Spaces In Title With**: Replace spaces in titles with a custom character (e.g., `.` or `_`).
+- **Title Sanitization Rules**: Add rules to replace or remove specific characters from titles.
+
+**Tips:**
+
+- If you get no results, double-check the TMDB ID and season number.
+- Use the language code that matches your preferred episode titles.
+
+---
+
+#### TVDB Dialog (Configure TVDB...)
+
+This dialog allows you to fetch episode titles and metadata from The TV Database (TVDB).
+
+**Fields and Options:**
+
+- **Enable TVDB Integration**: Toggle TVDB metadata fetching on or off.
+- **API Key**: Enter your TVDB v4 API key. You can get this from your TVDB account.
+- **Show ID**: Enter the numeric TVDB show ID (found in the TVDB URL for the show).
+- **Season Number**: Specify the season to fetch episode data from.
+- **Episode Number Offset**: Add this number to the episode number parsed from the filename.
+- **Metadata Options**: Choose which metadata to write (episode title, IDs, release date, cover art, episode summary, series summary).
+
+**Tips:**
+
+- You must have a valid TVDB API key. If you get errors, check your key and show ID.
+- If cover art is not appearing, ensure "Download & Embed Cover Art" is enabled and you are connected to the internet.
+- Use the correct season number for the episodes you are muxing.
+- **Note:** The TVDB integration only supports the aired order for episodes. DVD, absolute order, and director's cut are not supported.
+
+---
+
+#### Custom Titles Dialog (Set Custom Titles...)
+
+This dialog lets you manually specify a list of titles for each episode or file, overriding automatic fetching.
+
+**How to Use:**
+
+- **MKV Titles Tab**: Enter one MKV title per line. These will be applied in order to the muxed files.
+- **Filename Titles Tab**: Enter one filename episode value per line. These will replace `$ep$` in the filename template sequentially.
+
+**Tips:**
+
+- Use this if TMDB/TVDB does not have the correct episode titles or you want custom naming.
+- The order of lines matters: the first line is used for the first file, the second for the second, etc.
+- Leave a line blank to skip a title for that episode.
+
+---
+
+**Troubleshooting:**
+
+- If metadata is not being applied, ensure the integration is enabled and all required fields (API keys, IDs) are filled in.
+- For cover art issues, check your internet connection and that the cover art option is enabled.
+- If custom titles are not appearing, make sure the dialog is saved and the preset is updated.
+
 #### Premux Tab
 
 Configure advanced muxing options and video track information:
