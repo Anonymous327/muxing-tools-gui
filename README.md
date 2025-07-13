@@ -1,5 +1,7 @@
 # Muxer - Portable Executable
 
+**Note:** This project is based on [muxtools](https://github.com/muxtools/muxtools). For more information about muxtools, visit their [documentation](https://muxtools.vodes.pw/).
+
 A portable GUI application for batch video muxing operations with advanced subtitle and audio track management.
 
 ## Quick Start
