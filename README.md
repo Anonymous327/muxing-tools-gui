@@ -78,6 +78,6 @@ App/
 └── tracks/
     ├── audio/       # External audio files
     └── subtitles/   # External subtitle files
----
+```
 
 **Note**: This is a portable application. All settings and configurations are stored locally in the application folder and will persist between sessions.
