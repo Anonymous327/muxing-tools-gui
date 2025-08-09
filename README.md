@@ -25,7 +25,9 @@ A portable, advanced GUI for batch video muxing, subtitle/audio management, and 
 4. **Configure Tools**:
    - If tools are in your PATH, they’re auto-detected
    - Otherwise, set custom paths in Settings → Tools
-5. **Start Muxing**:
+5. **Configure Track Paths (Optional)**:
+   - Set custom track paths in Settings → Track Paths
+6. **Start Muxing**:
    - Use the Muxer page to process videos
 
 ## Usage
@@ -55,7 +57,7 @@ A portable, advanced GUI for batch video muxing, subtitle/audio management, and 
 
 - Backup originals before processing
 - Test with a few files first
-- Organize tracks in `App/tracks/`
+- Organize tracks in `App/tracks/`. However, you can also choose your own subtitle and audio directories on the Settings page for more flexibility
 - Use presets and macros for efficiency
 
 ## Support
