@@ -21,8 +21,7 @@ A portable, advanced GUI for batch video muxing, subtitle/audio management, and 
    - [FFmpeg](https://ffmpeg.org/)
    - [Aegisub](https://aegisub.org/)
 3. **Run**:
-   - `Muxing Tools.exe` (GUI)
-   - Or run `main.py` for source version
+   - `Muxing Tools GUI.exe` (GUI)
 4. **Configure Tools**:
    - If tools are in your PATH, they’re auto-detected
    - Otherwise, set custom paths in Settings → Tools
@@ -139,9 +138,7 @@ The application uses these folders for organization:
 ```
 App/
 ├── configs/         # JSON configs, presets, macros, styles
-├── download/        # Downloaded files (used by TVDB for cover art and assets)
 ├── logs/            # Application logs
-├── output/          # Processed output files (used by TVDB for remuxed files and results)
 └── tracks/
     ├── audio/       # External audio files
     └── subtitles/   # External subtitle files
