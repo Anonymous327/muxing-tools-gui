@@ -1,43 +1,74 @@
-# Muxer - Portable Executable
+# Muxing Tools GUI
 
-**Note:** This project is based on [muxtools](https://github.com/muxtools/muxtools). For more information about muxtools, visit their [documentation](https://muxtools.vodes.pw/).
+A portable, advanced GUI for batch video muxing, subtitle/audio management, and automation. Built for Windows, based on [muxtools](https://github.com/muxtools/muxtools).
 
-A portable GUI application for batch video muxing operations with advanced subtitle and audio track management.
+## Features
+
+- Batch muxing for MKV, MP4, AVI, and more
+- Advanced subtitle and audio track management
+- Preset and macro system for automation
+- Custom naming templates
+- Drag-and-drop track reordering
+- Style replacement, format conversion, smart subtitle processing
+- Integrated logs and troubleshooting
+- Portable: all configs and logs stored locally
 
 ## Quick Start
 
-1. **Download**: Download the executable file from the releases
-2. **Run the Application**:
-   - `Muxing Tools.exe` - Standard GUI version
-   - `Muxing Tools - Console.exe` - GUI version with console window visible for debugging
-3. **Configure Tools** (Optional):
-   - If MKVToolNix, FFmpeg, and Aegisub are in your PATH, they will be detected automatically
-   - Otherwise, go to Settings → Tools and set the paths to the required tools
-4. **Start Muxing**: Use the Muxer page to process your videos
+1. **Download**: Get the latest release or clone the repo
+2. **Install Required Tools**:
+   - [MKVToolNix](https://mkvtoolnix.download/)
+   - [FFmpeg](https://ffmpeg.org/)
+   - [Aegisub](https://aegisub.org/)
+3. **Run**:
+   - `Muxing Tools.exe` (GUI)
+   - Or run `main.py` for source version
+4. **Configure Tools**:
+   - If tools are in your PATH, they’re auto-detected
+   - Otherwise, set custom paths in Settings → Tools
+5. **Start Muxing**:
+   - Use the Muxer page to process videos
 
-## Requirements
+## Usage
 
-### Required Tools
+1. **Select Video Source**: Browse for your video files
+2. **Scan for Tracks**: Detect internal/external audio and subtitle tracks
+3. **Configure Tracks**: Add, reorder, and set properties for tracks
+4. **Set Output**: Choose output folder
+5. **Start Processing**: Begin batch muxing
 
-- **MKVToolNix**: Download from [mkvtoolnix.download](https://mkvtoolnix.download/)
-- **FFmpeg**: Required for audio encoding (download from [ffmpeg.org](https://ffmpeg.org/))
-- **Aegisub**: Required for subtitle editing (download from [aegisub.org](https://aegisub.org/))
+## Advanced
 
-**Note**: Tools can be used from your system PATH or you can set custom paths in the application settings.
+- **Presets**: Save and reuse muxing configurations
+- **Macros**: Automate repetitive tasks
+- **Templates**: Custom file naming with variables (`$show$`, `$ep$`, etc.)
+- **Batch Operations**: Process multiple files with the same config
+- **Subtitle Tools**: Style replacement, format conversion, smart handling
 
-### System Requirements
+## Troubleshooting
 
-- Windows 10/11 (64-bit)
-- 4GB RAM minimum (8GB recommended)
-- 2GB free disk space
+- Check `App/logs/` for error details
+- Verify tool installations and paths
+- Run as administrator if you see permission errors
+- Use SSD and close other apps for best performance
 
-## First Time Setup
+## Tips
 
-1. **Install Required Tools**:
+- Backup originals before processing
+- Test with a few files first
+- Organize tracks in `App/tracks/`
+- Use presets and macros for efficiency
 
-   - Download and install MKVToolNix from [mkvtoolnix.download](https://mkvtoolnix.download/)
-   - Download and install FFmpeg from [ffmpeg.org](https://ffmpeg.org/)
-   - Download and install Aegisub from [aegisub.org](https://aegisub.org/)
+## Support
+
+- Review logs for error details
+- Verify tool installations and paths
+- Test with sample files
+- See the Guide page in-app for documentation
+
+---
+
+**Note:** This is a portable app. All settings/configs are stored locally and persist between sessions.
 
 2. **Configure Tool Paths** (Optional):
 
@@ -106,13 +137,14 @@ A portable GUI application for batch video muxing operations with advanced subti
 The application uses these folders for organization:
 
 ```
-Muxer/
-├── tracks/
-│   ├── audio/          # External audio files
-│   └── subtitles/      # External subtitle files
-├── output/             # Processed output files
-├── configs/            # Configuration files
-└── logs/              # Application logs
+App/
+├── configs/         # JSON configs, presets, macros, styles
+├── download/        # Downloaded files (used by TVDB for cover art and assets)
+├── logs/            # Application logs
+├── output/          # Processed output files (used by TVDB for remuxed files and results)
+└── tracks/
+    ├── audio/       # External audio files
+    └── subtitles/   # External subtitle files
 ```
 
 ## Troubleshooting

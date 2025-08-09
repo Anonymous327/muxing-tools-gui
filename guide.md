@@ -8,8 +8,10 @@ This guide provides a comprehensive overview of all pages and features available
 
 - [Muxer Page](#muxer-page)
 - [Sub Editor Page](#sub-editor-page)
-- [Attachment Extractor Page](#attachment-extractor-page)
+- [MKV Extractor Page](#mkv-extractor-page)
 - [Templates Page](#templates-page)
+- [Logs Page](#logs-page)
+- [Guide Page](#guide-page)
 - [Settings Page](#settings-page)
 
 ---
@@ -45,8 +47,16 @@ The main page for batch muxing operations with comprehensive preset management a
 #### Naming Tab
 
 - **Show Name**: The general series name. Use `$show$` in templates to reference this name.
-- **Filename Template**: Template for output filenames. Use variables like `$show$`, `$ep$`, `$title$` to create consistent naming. Includes Add/Edit buttons for template management.
-- **MKV Title Template**: Template for the embedded title inside MKV files. This appears in media players. Includes Add/Edit buttons for template management.
+- **Filename Template**: Template for output filenames. Use variables like `$show$`, `$ep$`, `$title$` to create consistent naming. Available templates include:
+  - **Default**: `$videostem$` (uses the original video filename)
+  - **Default (TMDB)**: `$show$ - S$season$E$ep$ - $title_sanitized$` (TMDB-compatible naming)
+  - **Default (TVDB)**: `$seriesname$ - S$season$E$episodenumber$ - $episodename$$ext$` (TVDB-compatible naming)
+  - Includes Add/Edit buttons for template management
+- **MKV Title Template**: Template for the embedded title inside MKV files. This appears in media players. Available templates include:
+  - **No Title**: (empty - no embedded title)
+  - **Default (TMDB)**: `$show$ - S$season$E$ep$ - $title$` (TMDB episode format)
+  - **Default (TVDB)**: `$seriesname$ - S$season$E$episodenumber$ - $episodename$` (TVDB episode format)
+  - Includes Add/Edit buttons for template management
 - **Manage All Templates...**: Opens the Templates page to edit filename and title templates.
 - **Automated Naming**: Configure automatic title fetching and naming:
   - **Configure TMDB...**: Set up automatic episode title fetching from The Movie Database
@@ -165,6 +175,15 @@ Create custom variables for use in templates with range-based rules:
 #### Subtitles Tab
 
 - **Generate Chapters from Subtitle Track**: Create chapter markers from a selected subtitle track. Useful for creating scene-based chapters.
+  - **Configure Settings**: Click the gear icon to open the Chapter Generation Settings dialog
+  - **Chapter Detection Settings**: Configure how chapters are detected in subtitle files
+    - **Marker Keywords**: Comma-separated list of keywords to search for (e.g., "chapter, chptr, episode, part")
+    - **Use Actor Field for Detection**: Search for chapter markers in the actor/character field instead of the effect field
+    - **Print Found Chapters to Log**: Log all detected chapters for verification
+  - **File Encoding**: Set the character encoding for reading subtitle files (default: utf_8_sig)
+  - **Advanced Time Settings**: Configure timestamp interpretation for muxtools compatibility
+    - **Time Source Override**: Override the source of timestamps (advanced setting)
+    - **Time Scale Override**: Override the unit of time for frame timestamps (advanced setting)
 - **Resample Subtitles**: Adjust subtitle positioning and sizing to match different video dimensions. Scales subtitle coordinates and font sizes for different video resolutions.
 - **SRT to ASS Conversion**: Convert SRT subtitle files to ASS format with proper styling.
 
@@ -236,10 +255,12 @@ The Sub Editor Page provides advanced subtitle editing and processing tools with
 
 #### File Management
 
-- **Drag & Drop Area**: Drag and drop subtitle files (.ass, .ssa, .srt, .sub) or folders directly into the interface
+- **Drag & Drop Area**: Drag and drop ASS subtitle files or folders directly into the interface
 - **Add Files/Folders**: Browse and add individual files or entire folders
 - **Clear List**: Remove all files from the processing list
 - **Convert SRT/SUB to ASS**: Convert subtitle files to ASS format with proper styling
+
+**Note**: The drag and drop area now only accepts ASS files (.ass) to streamline the subtitle editing workflow and ensure compatibility with ASS-specific processing features.
 
 #### Top-Level Actions
 
@@ -247,6 +268,47 @@ The Sub Editor Page provides advanced subtitle editing and processing tools with
 - **Run SmartQuotify**: Convert quotes to proper typographic quotes with settings
 - **Run GJM Restyle**: Apply GJM-specific styling to subtitle files
 - **Convert British to American English**: Convert British English spelling to American English
+- **Script Property Editor...**: Edit script properties and metadata for selected subtitle files
+
+### Macro Operations
+
+The Sub Editor includes a powerful macro system for automating complex subtitle processing workflows.
+
+#### Macro Features
+
+- **Macro Selection**: Choose from saved macros to run on your files
+- **Run Macro**: Execute the selected macro on all selected subtitle files
+- **Edit Macro**: Modify existing macros or create new ones
+- **Delete Macro**: Remove unwanted macros
+- **Macro Settings**: Global settings for macro operations
+
+#### Available Macro Operations
+
+Macros can combine any of these operations in sequence:
+
+- **Format Clean**: Clean up formatting, remove unwanted characters, and set script info title
+- **Spelling Conversion**: Convert between different spelling systems (e.g., US/UK)
+- **Smart Quotify**: Convert straight quotes to curly quotes intelligently
+- **Resample**: Resample subtitles to different resolutions
+- **GJM Restyle**: Apply GJM-specific style transformations
+- **Unfuck CR**: Fix CR-specific subtitle issues
+- **Remove Unused Styles**: Remove style definitions that aren't used in the file
+- **Split Overlap**: Split overlapping subtitle lines
+
+#### Creating Macros
+
+1. Click the settings icon next to the macro controls
+2. In the Macro Settings dialog, click "Add Macro"
+3. Name your macro and add operations in the desired order
+4. Configure settings for each operation as needed
+5. Save the macro for reuse
+
+#### Macro Benefits
+
+- **Consistency**: Apply the same processing steps to multiple files
+- **Efficiency**: Automate repetitive subtitle editing tasks
+- **Customization**: Create workflows tailored to your specific needs
+- **Batch Processing**: Process multiple files with complex operations in one click
 
 ### Processing Tabs
 
@@ -270,10 +332,43 @@ The Sub Editor Page provides advanced subtitle editing and processing tools with
 
 #### Split Overlap Tab
 
-- **Line to treat as second speaker**: Choose which part of split lines to treat as second speaker
-  - Second part (after \N)
-  - First part (before \N)
-- **Run Split**: Execute the split overlap operation
+Split dialogue lines that contain two speakers separated by dashes into overlapping subtitle events.
+
+- **What it does**: Detects subtitle lines formatted like `"- Speaker 1 text\N- Speaker 2 text"` and splits them into two overlapping dialogue events for better presentation of simultaneous speech.
+
+- **Pattern Detection**: Looks for lines with the specific format:
+
+  - Starts with a dash (`-`) followed by first speaker's text
+  - Contains `\N` (line break)
+  - Followed by another dash (`-`) and second speaker's text
+  - Preserves formatting tags like `{\i1}` at the start of each speaker's line
+
+- **Line to treat as second speaker**: Choose which part gets the "Alt" style:
+
+  - **Second part (after \N)**: The text after `\N` gets the Alt style (different color)
+  - **First part (before \N)**: The text before `\N` gets the Alt style
+
+- **Style Creation**: Automatically creates an "Alt" style if it doesn't exist:
+
+  - Based on the original line's style
+  - Uses custom colors: white text, red secondary, brown outline, transparent shadow
+  - Applied to the designated second speaker
+
+- **Timing**: Both lines use the same start and end times (true overlapping dialogue)
+
+- **Use Cases**:
+
+  - Converting single lines with dual speakers into proper overlapping dialogue
+  - Creating visually distinct speakers in simultaneous conversations
+  - Improving readability of back-and-forth dialogue
+
+- **Run Split**: Execute the split overlap operation on all selected files
+
+**Example**: A line like `"- Hello there!\N- How are you?"` becomes:
+
+- Line 1: `"Hello there!"` (original style)
+- Line 2: `"How are you?"` (Alt style with different colors)
+- Both lines have identical timing (true overlap)
 
 ### Style Management
 
@@ -340,19 +435,45 @@ The Sub Editor Page includes several advanced settings dialogs for fine-tuning p
   - Encoding
   - Preset management for style replacements
 
+#### Script Property Editor Dialog
+
+- **Access:** Click the "Script Property Editor..." button at the top of the page.
+- **Features:**
+  - **File Selection**: Choose which file to edit from a dropdown (when multiple files selected)
+  - **Batch Mode**: Apply changes to all selected files at once
+  - **Standard Fields**: Edit common subtitle properties:
+    - Title, Original script, Translation, Editing, Timing
+    - Synch point, Updated by, Update details
+    - PlayResX/PlayResY (video resolution)
+    - YCbCr Matrix (color space)
+    - Wrap Style (text wrapping behavior)
+    - Scale Border and Shadow (boolean option)
+  - **Custom Fields**: Add, edit, or remove custom script properties
+  - **Selective Updates**: Choose which fields to update (checkboxes for each field)
+  - **Field Management**: Add new custom fields or remove existing ones
+
+**Usage Tips:**
+
+- Use batch mode to apply the same properties to multiple subtitle files
+- Custom fields allow storing project-specific metadata
+- PlayResX/PlayResY should match your target video resolution
+- YCbCr Matrix should match your video's color space for accurate colors
+
 ---
 
-## Attachment Extractor Page
+## MKV Extractor Page
 
 Extracts various components from MKV files in batch using MKVToolNix tools.
 
 ### Extraction Options
 
+Select what to extract from MKV files:
+
 - **Audio**: Extract audio tracks from MKV files
 - **Subtitles**: Extract subtitle tracks from MKV files
 - **Attachments**: Extract embedded files (fonts, images, etc.) from MKV files
-- **Chapters**: Extract chapter information from MKV files
-- **Tags**: Extract metadata tags from MKV files
+- **Chapters**: Extract chapter information from MKV files as XML
+- **Tags**: Extract metadata tags from MKV files as XML
 - **Cues**: Extract cue information for precise seeking
 - **Timestamps**: Extract timestamp data for each track
 
@@ -368,9 +489,55 @@ Extracts various components from MKV files in batch using MKVToolNix tools.
 - **Browse Output**: Browse to select the output directory
 - **Start Extraction**: Begin the batch extraction process
 
+### Settings Persistence
+
+Extraction settings (selected options and output directory) are automatically saved and restored when you reopen the application.
+
 ### Logging
 
 - **Log Area**: Real-time display of extraction progress and results
+- Shows detailed information about which files are being processed
+- Reports any errors during the extraction process
+
+---
+
+## Logs Page
+
+View and manage application logs with advanced filtering and display options.
+
+### Log Display Features
+
+- **Real-time Updates**: Automatically refresh log content as new entries are added
+- **Color-coded Entries**: Different colors for DEBUG, INFO, WARNING, ERROR, and CRITICAL messages
+- **Word Wrap**: Toggle word wrapping for long log lines
+- **Auto-scroll**: Automatically scroll to the bottom as new log entries appear
+- **Monospace Font**: Clear, readable display of log data
+
+### Log Filtering
+
+- **Level Filter**: Show only specific log levels (All, DEBUG, INFO, WARNING, ERROR, CRITICAL)
+- **Refresh**: Manually reload the log file content
+- **Clear**: Empty the log file and display area
+
+### Controls
+
+- **Realtime**: Enable/disable automatic log updates
+- **Word Wrap**: Toggle line wrapping for better readability
+- **Auto-scroll**: Keep the display scrolled to the latest entries
+- **Level**: Filter logs by severity level
+
+### Usage Tips
+
+- Use the level filter to focus on specific types of messages
+- Enable realtime updates to monitor application activity
+- Clear logs periodically to maintain performance
+- Word wrap helps with viewing long log lines
+
+---
+
+## Guide Page
+
+View this comprehensive user guide within the application. The Guide Page displays the complete documentation in an easy-to-read format with navigation support.
 
 ---
 
@@ -469,6 +636,24 @@ Configure application-wide settings that affect all pages and operations.
 - **What it does**: Used for audio encoding, subtitle conversion, and other media processing tasks
 - **How to set**: Browse to the folder containing ffmpeg.exe
 
+### Track Paths Configuration
+
+#### Audio Directory
+
+- **Purpose**: Specify where audio track files are stored and accessed
+- **Default**: `{base_directory}/App/tracks/audio`
+- **What it does**: Sets the default location for browsing audio tracks in the Muxer page
+- **How to set**: Browse to select your preferred audio tracks directory
+
+#### Subtitle Directory
+
+- **Purpose**: Specify where subtitle track files are stored and accessed
+- **Default**: `{base_directory}/App/tracks/subtitles`
+- **What it does**: Sets the default location for browsing subtitle tracks in the Muxer page
+- **How to set**: Browse to select your preferred subtitle tracks directory
+
+**Note**: Both audio and subtitle directories can be set independently, allowing you to organize your media files in different locations based on your workflow.
+
 ### Settings Management
 
 - **Auto-save**: Settings are automatically saved when changed
@@ -511,32 +696,3 @@ Configure application-wide settings that affect all pages and operations.
 ### Custom Variables
 
 Any variable created in the Custom Variables tab can be used as `$variable_name$` in templates.
-
----
-
-## Tips and Best Practices
-
-### Preset Management
-
-- Create separate presets for different series or projects
-- Use descriptive preset names for easy identification
-- Save presets frequently to avoid losing work
-- Export/import presets for backup or sharing
-
-### Template Design
-
-- Use descriptive template names
-- Test templates with a few files before batch processing
-- Consider file system limitations when designing filenames
-- Use custom variables for project-specific information
-
-### Audio/Subtitle Track Organization
-
-- Use consistent naming conventions for tracks
-- Leverage the "Add Scanned" feature for efficiency
-- Test track configurations with sample files
-- Use the drag-and-drop reordering for optimal track order
-
----
-
-This guide covers all major features and functionality of the Muxing Tools GUI. For additional help or feature requests, refer to the project documentation or create an issue on the project repository.
