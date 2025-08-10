@@ -1,6 +1,6 @@
 # Muxing Tools GUI: Complete Guide
 
-This guide provides a comprehensive overview of all pages and features available in the Muxing Tools GUI.
+This guide provides a comprehensive overview of all pages and features available.
 
 ---
 
@@ -50,12 +50,12 @@ The main page for batch muxing operations with comprehensive preset management a
 - **Filename Template**: Template for output filenames. Use variables like `$show$`, `$ep$`, `$title$` to create consistent naming. Available templates include:
   - **Default**: `$videostem$` (uses the original video filename)
   - **Default (TMDB)**: `$show$ - S$season$E$ep$ - $title_sanitized$` (TMDB-compatible naming)
-  - **Default (TVDB)**: `$seriesname$ - S$season$E$episodenumber$ - $episodename$$ext$` (TVDB-compatible naming)
+  - **Default (TVDB)**: `$seriesname$ - S$seasonnumberE$episodenumber$ - $episodename$$ext$` (TVDB-compatible naming)
   - Includes Add/Edit buttons for template management
 - **MKV Title Template**: Template for the embedded title inside MKV files. This appears in media players. Available templates include:
   - **No Title**: (empty - no embedded title)
   - **Default (TMDB)**: `$show$ - S$season$E$ep$ - $title$` (TMDB episode format)
-  - **Default (TVDB)**: `$seriesname$ - S$season$E$episodenumber$ - $episodename$` (TVDB episode format)
+  - **Default (TVDB)**: `$seriesname$ - S$seasonnumberE$episodenumber$ - $episodename$` (TVDB episode format)
   - Includes Add/Edit buttons for template management
 - **Manage All Templates...**: Opens the Templates page to edit filename and title templates.
 - **Automated Naming**: Configure automatic title fetching and naming:
@@ -111,6 +111,14 @@ This dialog allows you to fetch episode titles and metadata from The TV Database
 - If cover art is not appearing, ensure "Download & Embed Cover Art" is enabled and you are connected to the internet.
 - Use the correct season number for the episodes you are muxing.
 - **Note:** The TVDB integration only supports the aired order for episodes. DVD, absolute order, and director's cut are not supported.
+
+**Example TVDB Template Usage:**
+
+- **Basic naming**: `$seriesname - S$season$E$ep$ - $episodename$ext`
+- **With air date**: `$seriesname ($airyear) - S$season$E$ep$ - $episodename$ext`
+- **Anime format**: `$seriesname - $absolutenumber - $episodename$ext`
+- **With network**: `[$seriesnetwork] $seriesname - S$season$E$ep$ - $episodename$ext`
+- **Detailed**: `$seriesname - S$season$E$ep$ - $episodename [$seriesgenres]$ext`
 
 ---
 
@@ -682,16 +690,42 @@ Configure application-wide settings that affect all pages and operations.
 
 ### TVDB Variables (when enabled)
 
-| Variable           | Description                |
-| ------------------ | -------------------------- |
-| `$seriesname`      | Sanitized series name      |
-| `$episodename`     | Sanitized episode name     |
-| `$seriesname_raw`  | Original series name       |
-| `$episodename_raw` | Original episode name      |
-| `$seasonnumber`    | Zero-padded season number  |
-| `$episodenumber`   | Zero-padded episode number |
-| `$ext`             | File extension             |
-| `$crc32`           | CRC32 Hash (if enabled)    |
+| Variable                   | Description                                  |
+| -------------------------- | -------------------------------------------- |
+| `$seriesname`              | Sanitized series name                        |
+| `$episodename`             | Sanitized episode name                       |
+| `$seriesname_raw`          | Original series name                         |
+| `$episodename_raw`         | Original episode name                        |
+| `$seasonnumber`            | Zero-padded season number                    |
+| `$episodenumber`           | Zero-padded episode number                   |
+| `$ext`                     | File extension                               |
+| **Muxtools Compatibility** |                                              |
+| `$season$`                 | Zero-padded season number (muxtools format)  |
+| `$ep$`                     | Zero-padded episode number (muxtools format) |
+| **Extended TVDB Data**     |                                              |
+| `$episodeoverview`         | Episode synopsis (sanitized)                 |
+| `$episodeoverview_raw`     | Episode synopsis (original)                  |
+| `$seriesoverview`          | Series summary (sanitized)                   |
+| `$seriesoverview_raw`      | Series summary (original)                    |
+| `$airdate`                 | First aired date (YYYY-MM-DD)                |
+| `$airyear`                 | Year from air date                           |
+| `$airmonth`                | Month from air date (01-12)                  |
+| `$airday`                  | Day from air date (01-31)                    |
+| `$seriesid`                | TVDB series ID                               |
+| `$episodeid`               | TVDB episode ID                              |
+| `$absolutenumber`          | Absolute episode number (for anime)          |
+| `$dvdepisodenumber`        | DVD episode number                           |
+| `$dvdseasonnumber`         | DVD season number                            |
+| `$episoderuntime`          | Episode runtime in minutes                   |
+| `$seriesrating`            | Series content rating                        |
+| `$serieslanguage`          | Primary series language                      |
+| `$seriesnetwork`           | Original broadcast network                   |
+| `$seriesstatus`            | Series status (Continuing, Ended, etc.)      |
+| `$seriesgenres`            | Series genres (comma-separated)              |
+| `$episodeguests`           | Guest stars for episode                      |
+| `$episodedirectors`        | Episode directors                            |
+| `$episodewriters`          | Episode writers                              |
+| `$crc32`                   | CRC32 Hash (if enabled)                      |
 
 ### Custom Variables
 
