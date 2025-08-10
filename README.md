@@ -20,6 +20,12 @@ A portable, advanced GUI for batch video muxing, subtitle/audio management, and 
    - [MKVToolNix](https://mkvtoolnix.download/)
    - [FFmpeg](https://ffmpeg.org/)
    - [Aegisub](https://aegisub.org/)
+   - [FLACCL](https://github.com/gchudov/cuetools.net/releases/download/v2.2.6/CUETools_2.2.6.zip)
+   - [EAC3to](https://files.catbox.moe/hn9oms.7z)
+   - [qaac](https://pomf2.lain.la/f/u8yyfyed.7z)
+   - [Opusenc](https://www.rarewares.org/files/opus/opus-tools%200.2-34-g98f3ddc-x64.zip)
+   - [FLAC](https://github.com/xiph/flac/releases/download/1.5.0/flac-1.5.0-win.zip)
+   - [Wavpack](https://github.com/dbry/WavPack/releases/download/5.8.1/wavpack-5.8.0-x64.zip)
 3. **Run**:
    - `Muxing Tools GUI.exe` (GUI)
 4. **Configure Tools**:
