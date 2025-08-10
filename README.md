@@ -1,6 +1,6 @@
 # Muxing Tools GUI: Complete Guide
 
-This guide provides a comprehensive overview of all pages and features availabe.
+This guide provides a comprehensive overview of all pages and features available.
 
 ---
 
