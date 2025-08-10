@@ -1,11 +1,6 @@
 # Muxing Tools GUI: Complete Guide
 
-This guide provides a comprehensive overview of all pages and features availab- **Basic naming**: `$seriesname - S$seasonnumber$E$episodenumber$ - $episodename$ext`
-
-- **With air date**: `$seriesname ($airyear) - S$seasonnumber$E$episodenumber$ - $episodename$ext`
-- **Anime format**: `$seriesname - Ep$absolutenumber$ - $episodename$ext`
-- **With network**: `[$seriesnetwork] $seriesname - S$seasonnumber$E$episodenumber$ - $episodename$ext`
-- **Detailed**: `$seriesname - S$seasonnumber$E$episodenumber$ - $episodename [$seriesgenres]$ext` the Muxing Tools GUI.
+This guide provides a comprehensive overview of all pages and features availabe.
 
 ---
 
