@@ -49,12 +49,12 @@ A portable, advanced GUI for batch video muxing, subtitle/audio management, and 
 - **Presets**: Save and reuse muxing configurations
 - **Macros**: Automate repetitive tasks
 - **Templates**: Custom file naming with variables (`$show$`, `$ep$`, etc.)
-- **Batch Operations**: Process multiple files with the same config
+- **Batch Operations**: Process multiple fE$s with the same config
 - **Subtitle Tools**: Style replacement, format conversion, smart handling
 
 ## Troubleshooting
 
-- Check `App/logs/` for error details
+- Check `App/logs/` for error detailsE$
 - Verify tool installations and paths
 - Run as administrator if you see permission errors
 - Use SSD and close other apps for best performance
@@ -89,3 +89,4 @@ App/
 ```
 
 **Note**: This is a portable application. All settings and configurations are stored locally in the application folder and will persist between sessions.
+E$E$E$E$

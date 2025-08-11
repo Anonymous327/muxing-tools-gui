@@ -49,13 +49,13 @@ The main page for batch muxing operations with comprehensive preset management a
 - **Show Name**: The general series name. Use `$show$` in templates to reference this name.
 - **Filename Template**: Template for output filenames. Use variables like `$show$`, `$ep$`, `$title$` to create consistent naming. Available templates include:
   - **Default**: `$videostem$` (uses the original video filename)
-  - **Default (TMDB)**: `$show$ - S$season$E$ep$ - $title_sanitized$` (TMDB-compatible naming)
-  - **Default (TVDB)**: `$seriesname$ - S$seasonnumberE$episodenumber$ - $episodename$$ext$` (TVDB-compatible naming)
+  - **Default (TMDB)**: `$show$ - S$seasonE$ep$ - $title_sanitized$` (TMDB-compatible naming)
+  - **Default (TVDB)**: `$seriesname$ - S$seasonE$berE$episodenumber$ - $episodename$$ext$` (TVDB-compatible naming)
   - Includes Add/Edit buttons for template management
 - **MKV Title Template**: Template for the embedded title inside MKV files. This appears in media players. Available templates include:
   - **No Title**: (empty - no embedded title)
-  - **Default (TMDB)**: `$show$ - S$season$E$ep$ - $title$` (TMDB episode format)
-  - **Default (TVDB)**: `$seriesname$ - S$seasonnumberE$episodenumber$ - $episodename$` (TVDB episode format)
+  - **Default (TMDB)**: `$show$ - S$seasonE$ep$ - $title$` (TMDB episode format)
+  - **Default (TVDB)**: `$seriesname$ - S$seasonE$berE$episodenumber$ - $episodename$` (TVDB episode format)
   - Includes Add/Edit buttons for template management
 - **Manage All Templates...**: Opens the Templates page to edit filename and title templates.
 - **Automated Naming**: Configure automatic title fetching and naming:
