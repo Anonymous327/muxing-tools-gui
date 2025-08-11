@@ -15,7 +15,7 @@ A portable, advanced GUI for batch video muxing, subtitle/audio management, and 
 
 ## Quick Start
 
-1. **Download**: Get the latest release or clone the repo
+1. **Download**: Get the latest release from [releases](https://github.com/Anonymous327/muxing-tools-gui/releases)
 2. **Install Required Tools**:
    - [MKVToolNix](https://mkvtoolnix.download/)
    - [FFmpeg](https://ffmpeg.org/)
