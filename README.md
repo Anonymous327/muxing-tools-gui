@@ -17,15 +17,15 @@ A portable, advanced GUI for batch video muxing, subtitle/audio management, and 
 
 1. **Download**: Get the latest release from [releases](https://github.com/Anonymous327/muxing-tools-gui/releases)
 2. **Install Required Tools**:
-   - [MKVToolNix](https://mkvtoolnix.download/)
-   - [FFmpeg](https://ffmpeg.org/)
-   - [Aegisub](https://aegisub.org/)
-   - [FLACCL](https://github.com/gchudov/cuetools.net/releases/download/v2.2.6/CUETools_2.2.6.zip)
-   - [EAC3to](https://files.catbox.moe/hn9oms.7z)
-   - [qaac](https://pomf2.lain.la/f/u8yyfyed.7z)
-   - [Opusenc](https://www.rarewares.org/files/opus/opus-tools%200.2-34-g98f3ddc-x64.zip)
-   - [FLAC](https://github.com/xiph/flac/releases/download/1.5.0/flac-1.5.0-win.zip)
-   - [Wavpack](https://github.com/dbry/WavPack/releases/download/5.8.1/wavpack-5.8.0-x64.zip)
+   - [MKVToolNix](https://mkvtoolnix.download/) (Can be installed or added to PATH or Tool Path)
+   - [FFmpeg](https://ffmpeg.org/) (Add to PATH or Tool Path)
+   - [Aegisub](https://aegisub.org/) (Can be installed or added to PATH or Tool Path)
+   - [FLACCL](https://github.com/gchudov/cuetools.net/releases/download/v2.2.6/CUETools_2.2.6.zip) (Add to PATH or Tool Path)
+   - [EAC3to](https://files.catbox.moe/hn9oms.7z) (Add to PATH or Tool Path)
+   - [qaac](https://pomf2.lain.la/f/u8yyfyed.7z) (Add to PATH or Tool Path) - rename qaac64.exe to qaac.exe
+   - [Opusenc](https://www.rarewares.org/files/opus/opus-tools%200.2-34-g98f3ddc-x64.zip) (Add to PATH or Tool Path)
+   - [FLAC](https://github.com/xiph/flac/releases/download/1.5.0/flac-1.5.0-win.zip) (Add to PATH or Tool Path)
+   - [WavPack](https://github.com/dbry/WavPack/releases/download/5.8.1/wavpack-5.8.0-x64.zip) (Add to PATH or Tool Path)
 3. **Run**:
    - `Muxing Tools GUI.exe` (GUI)
 4. **Configure Tools**:
