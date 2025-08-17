@@ -49,14 +49,13 @@ A portable, advanced GUI for batch video muxing, subtitle/audio management, and 
 - **Presets**: Save and reuse muxing configurations
 - **Macros**: Automate repetitive tasks
 - **Templates**: Custom file naming with variables (`$show$`, `$ep$`, etc.)
-- **Batch Operations**: Process multiple fE$s with the same config
+- **Batch Operations**: Process multiple files with the same config
 - **Subtitle Tools**: Style replacement, format conversion, smart handling
 
 ## Troubleshooting
 
-- Check `App/logs/` for error detailsE$
+- Check `App/logs/` for error details
 - Verify tool installations and paths
-- Run as administrator if you see permission errors
 - Use SSD and close other apps for best performance
 
 ## Tips
@@ -65,6 +64,9 @@ A portable, advanced GUI for batch video muxing, subtitle/audio management, and 
 - Test with a few files first
 - Organize tracks in `App/tracks/`. However, you can also choose your own subtitle and audio directories on the Settings page for more flexibility
 - Use presets and macros for efficiency
+- The extractor is currently quite basic, so you can use [gMKVExtractGUI](https://github.com/Gpower2/gMKVExtractGUI) if you want something more advanced
+- Use simple names for audio and subtitle files (S##E##_language; use keywords if you want multiple tracks in the same folder)
+- If you want a feature added or an existing feature improved, do let me know
 
 ## Support
 
@@ -88,4 +90,4 @@ App/
     └── subtitles/   # External subtitle files
 ```
 
-**Note**: This is a portable application. All settings and configurations are stored locally in the application folder and will persist between sessions.
+**Note**: This is a portable application. All settings and configurations are stored locally in the application folder and will persist between sessions. Also, I should probably create a more detailed guide at some point.
