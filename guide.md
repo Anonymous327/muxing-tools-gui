@@ -299,7 +299,7 @@ Macros can combine any of these operations in sequence:
 - **Smart Quotify**: Convert straight quotes to curly quotes intelligently
 - **Resample**: Resample subtitles to different resolutions
 - **GJM Restyle**: Apply GJM-specific style transformations
-- **Unfuck CR**: Fix CR-specific subtitle issues
+- **Style Merger**: Merge and normalize subtitle styles
 - **Remove Unused Styles**: Remove style definitions that aren't used in the file
 - **Split Overlap**: Split overlapping subtitle lines
 
@@ -333,10 +333,10 @@ Macros can combine any of these operations in sequence:
 - **Run**: Execute subtitle resampling to match the selected video dimensions
 - **What it does**: Scales subtitle positioning and sizing to match the target video resolution, adjusting subtitle coordinates and font sizes for different video dimensions
 
-#### Unfuck CR Tab
+#### Style Merger Tab
 
-- **Settings**: Configure Unfuck CR processing parameters
-- **Run Unfuck CR**: Execute the Unfuck CR script on selected files
+- **Settings**: Configure Style Merger processing parameters
+- **Run Style Merger**: Execute the Style Merger script on selected files
 
 #### Split Overlap Tab
 
@@ -399,9 +399,9 @@ Split dialogue lines that contain two speakers separated by dashes into overlapp
 
 The Sub Editor Page includes several advanced settings dialogs for fine-tuning processing:
 
-#### Unfuck CR Settings Dialog
+#### Style Merger Settings Dialog
 
-- **Access:** Click the "Settings..." button in the Unfuck CR tab.
+- **Access:** Click the "Settings..." button in the Style Merger tab.
 - **Options:**
   - Default Style
   - Keep Flashback Styles
