@@ -273,7 +273,7 @@ The Sub Editor Page provides advanced subtitle editing and processing tools with
 #### Top-Level Actions
 
 - **Remove Unused Styles**: Clean up unused styles, fonts, and elements from subtitle files
-- **Run SmartQuotify**: Convert quotes to proper typographic quotes with settings
+- **Run Smarten Punctuation**: Convert quotes to proper typographic quotes with settings
 - **Run GJM Restyle**: Apply GJM-specific styling to subtitle files
 - **Convert British to American English**: Convert British English spelling to American English
 - **Script Property Editor...**: Edit script properties and metadata for selected subtitle files
@@ -412,9 +412,9 @@ The Sub Editor Page includes several advanced settings dialogs for fine-tuning p
   - Alt Style Identifiers (comma-separated)
   - Auto-import styles from loaded files
 
-#### SmartQuotify Settings Dialog
+#### Smarten Punctuation Settings Dialog
 
-- **Access:** Click the gear/settings icon next to the "Run SmartQuotify" button.
+- **Access:** Click the gear/settings icon next to the "Run Smarten Punctuation" button.
 - **Options:**
   - Enable quote conversion (choose style: curly, straight, or custom)
   - Custom opening/closing quote characters
