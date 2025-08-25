@@ -160,7 +160,7 @@ Configure advanced muxing options and video track information:
   - `--no-global-tags`: Exclude global tags from the output
 - **Edit Video Track Info**: Configure the primary video track:
   - **Track Name**: Set a custom name for the video track
-  - **Language**: Set the language code for the video track (e.g., "eng")
+  - **Language**: Set the language code for the video track (e.g., "en")
   - **Flags**: Set default/forced track properties
 - **Custom mkvmerge Args**: Advanced mkvmerge arguments for the primary video track
 - **Preserve original video track name**: Keep the original video track name from the source file
