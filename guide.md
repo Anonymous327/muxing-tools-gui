@@ -9,9 +9,7 @@ This guide provides a comprehensive overview of all pages and features available
 - [Muxer Page](#muxer-page)
 - [Sub Editor Page](#sub-editor-page)
 - [MKV Extractor Page](#mkv-extractor-page)
-- [Templates Page](#templates-page)
 - [Logs Page](#logs-page)
-- [Guide Page](#guide-page)
 - [Settings Page](#settings-page)
 
 ---
@@ -296,7 +294,7 @@ Macros can combine any of these operations in sequence:
 
 - **Format Clean**: Clean up formatting, remove unwanted characters, and set script info title
 - **Spelling Conversion**: Convert between different spelling systems (e.g., US/UK)
-- **Smart Quotify**: Convert straight quotes to curly quotes intelligently
+- **Smarten Punctuation**: Convert straight quotes to curly quotes intelligently
 - **Resample**: Resample subtitles to different resolutions
 - **GJM Restyle**: Apply GJM-specific style transformations
 - **Style Merger**: Merge and normalize subtitle styles
