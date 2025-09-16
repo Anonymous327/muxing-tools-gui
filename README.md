@@ -19,7 +19,7 @@ A portable, advanced GUI for batch video muxing, subtitle/audio management, and 
 2. **Install Required Tools**:
    - [MKVToolNix](https://mkvtoolnix.download/) (Can be installed or added to PATH or auto-download)
    - [FFmpeg](https://ffmpeg.org/) (Add to PATH or auto-download)
-   - [Aegisub](https://aegisub.org/) (Can be installed or added to PATH)
+   - [Aegisub](https://aegisub.org/) (Can be installed or added to PATH or auto-download)
    - [FLACCL](https://github.com/gchudov/cuetools.net/releases/download/v2.2.6/CUETools_2.2.6.zip) (Add to PATH or auto-download)
    - [EAC3to](https://files.catbox.moe/hn9oms.7z) (Add to PATH or auto-download)
    - [qaac](https://pomf2.lain.la/f/u8yyfyed.7z) (Add to PATH or auto-download)
@@ -36,27 +36,9 @@ A portable, advanced GUI for batch video muxing, subtitle/audio management, and 
 6. **Start Muxing**:
    - Use the Muxer page to process videos
 
-## Usage
-
-1. **Select Video Source**: Browse for your video files
-2. **Scan for Tracks**: Detect internal/external audio and subtitle tracks
-3. **Configure Tracks**: Add, reorder, and set properties for tracks
-4. **Set Output**: Choose output folder
-5. **Start Processing**: Begin batch muxing
-
-## Advanced
-
-- **Presets**: Save and reuse muxing configurations
-- **Macros**: Automate repetitive tasks
-- **Templates**: Custom file naming with variables (`$show$`, `$ep$`, etc.)
-- **Batch Operations**: Process multiple files with the same config
-- **Subtitle Tools**: Style replacement, format conversion, smart handling
-
 ## Troubleshooting
 
 - Check `App/logs/` for error details
-- Verify tool installations and paths
-- Use SSD and close other apps for best performance
 
 ## Tips
 
@@ -64,16 +46,8 @@ A portable, advanced GUI for batch video muxing, subtitle/audio management, and 
 - Test with a few files first
 - Organize tracks in `App/tracks/`. However, you can also choose your own subtitle and audio directories on the Settings page for more flexibility
 - Use presets and macros for efficiency
-- The extractor is currently quite basic, so you can use [gMKVExtractGUI](https://github.com/Gpower2/gMKVExtractGUI) if you want something more advanced
 - Use simple names for audio and subtitle files (S##E##_language; use keywords if you want multiple tracks in the same folder)
 - If you want a feature added or an existing feature improved, do let me know
-
-## Support
-
-- Review logs for error details
-- Verify tool installations and paths
-- Test with sample files
-- See the Guide page in-app for documentation
 
 ---
 
@@ -83,6 +57,7 @@ The application uses these folders for organization:
 
 ```
 App/
+├── binaries/
 ├── configs/         # JSON configs, presets, macros, styles
 ├── logs/            # Application logs
 └── tracks/
