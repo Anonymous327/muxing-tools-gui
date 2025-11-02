@@ -647,14 +647,14 @@ Configure application-wide settings that affect all pages and operations.
 #### Audio Directory
 
 - **Purpose**: Specify where audio track files are stored and accessed
-- **Default**: `{base_directory}/App/tracks/audio`
+- **Default**: `{base_directory}/app/tracks/audio`
 - **What it does**: Sets the default location for browsing audio tracks in the Muxer page
 - **How to set**: Browse to select your preferred audio tracks directory
 
 #### Subtitle Directory
 
 - **Purpose**: Specify where subtitle track files are stored and accessed
-- **Default**: `{base_directory}/App/tracks/subtitles`
+- **Default**: `{base_directory}/app/tracks/subtitles`
 - **What it does**: Sets the default location for browsing subtitle tracks in the Muxer page
 - **How to set**: Browse to select your preferred subtitle tracks directory
 

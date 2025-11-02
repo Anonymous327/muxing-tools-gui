@@ -38,15 +38,15 @@ A portable, advanced GUI for batch video muxing, subtitle/audio management, and 
 
 ## Troubleshooting
 
-- Check `App/logs/` for error details
+- Check `app/logs/` for error details
 
 ## Tips
 
 - Backup originals before processing
 - Test with a few files first
-- Organize tracks in `App/tracks/`. However, you can also choose your own subtitle and audio directories on the Settings page for more flexibility
+- Organize tracks in `app/tracks/`. However, you can also choose your own subtitle and audio directories on the Settings page for more flexibility
 - Use presets and macros for efficiency
-- Use simple names for audio and subtitle files (S##E##_language; use keywords if you want multiple tracks in the same folder)
+- Use simple names for audio and subtitle files (S##E##\_language; use keywords if you want multiple tracks in the same folder)
 - If you want a feature added or an existing feature improved, do let me know
 
 ---
@@ -56,7 +56,7 @@ A portable, advanced GUI for batch video muxing, subtitle/audio management, and 
 The application uses these folders for organization:
 
 ```
-App/
+app/
 ├── binaries/
 ├── configs/         # JSON configs, presets, macros, styles
 ├── logs/            # Application logs
