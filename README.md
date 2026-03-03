@@ -1,6 +1,6 @@
 # Muxing Tools GUI
 
-A portable, advanced GUI for batch video muxing, subtitle/audio management, and automation. Built for Windows, based on [muxtools](https://github.com/Jaded-Encoding-Thaumaturgy/muxtools).
+A portable, advanced GUI for batch video muxing, subtitle/audio management, demuxing, mkv extractor, and automation. Built for Windows, inspired by [muxtools](https://github.com/Jaded-Encoding-Thaumaturgy/muxtools).
 
 ## Quick Start
 
